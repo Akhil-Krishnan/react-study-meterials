@@ -1,0 +1,35 @@
+function MultiCounter(){
+  const [counter, setCounter] = useState(5);
+  return <button onClick={()=>setCounter(counter+counter)}>{counter}</button>
+}
+function Display(){
+  return(
+    <div> Hi </div>
+  );
+}
+ReactDOM.render(
+  <div>
+    <MultiCounter />
+    <Display />
+  </div>,
+  document.getElementById('mountNode'),
+);
+
+/* We can render the DOM elements in different way. For that react providing special function React.Fragment. React. Fragment same as "<>" */
+/*
+ReactDOM.render(
+  <React.Fragment>
+    <MultiCounter />
+    <Display />
+  </React.Fragment>,
+  document.getElementById('mountNode'),
+);
+OR
+ReactDOM.render(
+  <>
+    <MultiCounter />
+    <Display />
+  </>,
+  document.getElementById('mountNode'),
+);
+*/
