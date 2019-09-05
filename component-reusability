@@ -1,0 +1,48 @@
+// We need to display the counder value inside the Display Div.
+
+/*for that we need to change the state value shoud be the accessable. If the counder value inside the MultiCounder Function(sibling of MultiCOunter function) It's not possible. So State value function move under the App() and pass as the parameter. */
+
+function MultiCounter(props){
+  const handleClick = () => props.onClickFunction(props.label); 
+    /*onClick function is a reference of incrementer function do we need to use 'incrementValue' argument also here for getting value. for rendering value we need functoin reference but currently we have a function invocation only(onClick= {props.onClickFunction(incrementValue)}). for that we can use a arrow function like (onClick= {() => props.onClickFunction(props.label)}). Otherways we can use individual function handleClick.*/
+  return(
+    <button onClick= {handleClick} >
+      +{props.label}
+    </button>
+  );
+}
+
+//props can hold data as well as function also.
+
+function Display(props){
+  return(
+    <div> {props.message} </div>
+  );
+}
+
+//create a function App for rendring html
+
+function App(){
+  /* for the incrementation we need values what we specifies in the label. for that we use arguments for that value.*/
+  const incrementer = (incrementValue)=>setCounter(counter+incrementValue); 
+
+  /*can't directly access this function to MultiCounter function. coponents only access by it's own functions. for that we can pass a reference of incrementer function.*/
+
+  const [counter, setCounter] = useState(0);
+  
+      /* we can pass label's in the different format like inside "" and {}, if we pass inside the "" it will take as the string, if we pass inside the {} it take it as a value. */
+  return(
+    <>
+      <MultiCounter onClickFunction = {incrementer} label = {1}/>
+      <MultiCounter onClickFunction = {incrementer} label = {5}/>
+      <MultiCounter onClickFunction = {incrementer} label = {10}/>
+      <MultiCounter onClickFunction = {incrementer} label = {100}/>
+      <Display message={counter}/>
+    </>
+  );
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('mountNode'),
+);
