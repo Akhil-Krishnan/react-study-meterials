@@ -1,0 +1,29 @@
+function MultiCounter(){
+  const [counter, setCounter] = useState(0);
+  //create a seperate function handleClick
+  const handleClick = ()=>setCounter(counter+1);
+  //change the return also for the function call
+  return(
+    <button onClick={handleClick}>
+      {counter}
+    </button>
+  );
+}
+function Display(){
+  return(
+    <div> Hi </div>
+  );
+}
+//create a function App for rendring html
+function App(){
+  return(
+    <>
+      <MultiCounter />
+      <Display />
+    </>
+  );
+}
+ReactDOM.render(
+  <App />,
+  document.getElementById('mountNode'),
+);
