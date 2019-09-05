@@ -1,0 +1,36 @@
+// We need to display the counder value inside the Display Div.
+
+/*for that we need to change the state value shoud be the accessable. If the counder value inside the MultiCounder Function(sibling of MultiCOunter function) It's not possible. So State value function move under the App() and pass as the parameter. */
+
+function MultiCounter(props){
+  return(
+    <button onClick= {props.onClickFunction} >
+      +1
+    </button>
+  );
+}
+//props can hold data as well as function also.
+function Display(props){
+  return(
+    <div> {props.message} </div>
+  );
+}
+
+//create a function App for rendring html
+
+function App(){
+  const incrementer = ()=>setCounter(counter+1); 
+  /*can't directly access this function to MultiCounter function. coponents only access by it's own functions. for that we can pass a reference of incrementer function.*/
+  const [counter, setCounter] = useState(0);
+  return(
+    <>
+      <MultiCounter onClickFunction = {incrementer}/>
+      <Display message={counter}/>
+    </>
+  );
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('mountNode'),
+);
