@@ -1,0 +1,23 @@
+/*
+Regular function give access  to there "calling environment" while arrow function give access to the "Defining Environment"
+
+The value of the "this" keyword inside the regular function depends on How function was CALLED(the object that made the call)
+The value of the "this" keyword inside the arrow function depends on Where function was Defined(the scope defined the function)
+
+*/
+
+console.log(this);
+
+const testerObj = {
+func1 : function(){
+  console.log('func1', this);
+},
+
+func2 : () => {
+  console.log('func2', this);
+},
+};
+
+testerObj.func1();
+
+testerObj.func2();
