@@ -1,0 +1,10 @@
+Only Just Basics things here we are looking.
+    1. Block Scopes and the var/let/const keywords
+    2. Arrow Functions and Closures
+    3. Object Literals
+    4. Destructuring Arrays and Objects
+    5. The REST/SPREAD Syntax
+    6. Template Strings
+    7. Classes and Instances
+    8. Promises and Async/Await
+    9. ES Modules  Import/Export
