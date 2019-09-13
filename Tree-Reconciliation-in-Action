@@ -30,3 +30,6 @@ ReactDOM.render(
 );
 }
 setInterval(render, 1000);
+
+
+//Inspect after run. that time u can under stand how dom regenerating each second.
