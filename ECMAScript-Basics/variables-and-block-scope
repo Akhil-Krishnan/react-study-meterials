@@ -1,0 +1,51 @@
+/*
+variable declaring using "var"
+*/
+
+// {{{ var v = 42;}}}
+// v
+// {{{var v = 42;}}}
+
+// v
+
+{
+  //block scope
+  {
+    //nested block scope
+    //let, const
+  }
+}
+
+if(true){
+  //ock scope
+}
+
+// for(var i = 0; i<=10; i++){
+//   //block scope
+// }
+//i //var can access out side the scope;
+
+for(let i = 0; i<=10; i++){
+  //block scope
+}
+//i // it will not access outside the scope.
+
+function sum(a,b){
+  // function scope
+  var result = a+b
+  return result;
+}
+
+sum(6,9);
+
+//Scalar Variables
+
+const ans = 42;
+const greeting = 'Hello';
+
+//Arrays and Objects
+
+const numbers = [6,4,2];
+const person = {first-name:"Akhil", last-name:"Doe"};
+
+/*The "const" functions are immutable and "let" values are mutable*/
