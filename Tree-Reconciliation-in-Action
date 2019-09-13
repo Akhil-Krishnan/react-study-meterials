@@ -1,0 +1,32 @@
+//here we are saying importants of cration elements in React. If we want to do alternative things then we should create the elements in the React itself.
+//example is given below.
+//the react dom can render only what we want to render, but html DOM render whole div. it will make issue.
+
+const render = () => {
+  document.getElementById('mountNode').innerHTML = `
+	<div>
+    Hello HTML
+    <input/>
+    <pre>${(new Date).toLocaleTimeString()}</pre>
+  </div>
+`;
+
+ReactDOM.render(
+  React.createElement(
+    'div', 
+    null, 
+    'Hello React',
+    React.createElement(
+      'input',
+      'null'
+      ),
+    React.createElement(
+      'pre',
+      null,
+      (new Date).toLocaleTimeString()
+    ),
+  ),
+  document.getElementById('mountNode2'),
+);
+}
+setInterval(render, 1000);
